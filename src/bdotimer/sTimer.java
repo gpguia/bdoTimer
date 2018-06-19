@@ -42,10 +42,9 @@ public class sTimer {
         task = new TimerTask(){
             @Override
             public void run() {
-                if(s == 0){
+                if(s == 0 && m > 0){
                     s = 59;
-                    if(m > 0)
-                        m--;
+                    m--;
                 }
                 if(s<10 && m>=10){
                     l.setText("00:"+m+":"+"0"+s);

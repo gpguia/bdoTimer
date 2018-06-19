@@ -130,6 +130,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         jts01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jts01.setText("00");
+        jts01.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jts01FocusLost(evt);
+            }
+        });
         jts01.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jts01MouseEntered(evt);
@@ -178,6 +183,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         jts02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jts02.setText("00");
+        jts02.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jts02FocusLost(evt);
+            }
+        });
         jts02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jts02MouseEntered(evt);
@@ -226,6 +236,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         jts03.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jts03.setText("00");
+        jts03.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jts03FocusLost(evt);
+            }
+        });
         jts03.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jts03MouseEntered(evt);
@@ -274,6 +289,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         jts04.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jts04.setText("00");
+        jts04.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jts04FocusLost(evt);
+            }
+        });
         jts04.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jts04MouseEntered(evt);
@@ -322,6 +342,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         jts05.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jts05.setText("00");
+        jts05.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jts05FocusLost(evt);
+            }
+        });
         jts05.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jts05MouseEntered(evt);
@@ -538,16 +563,16 @@ public class mainFrame extends javax.swing.JFrame {
             }else{
                 slc.close();
                 slc = new startLessChecker(st01,st02,st03,st04,st05,jlessCur,jtfCurLess,tf01,tf02,tf03,tf04,tf05);
-                try{
+                /*try{
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                }*/
                 slc.start();
             }
         }else{
             st01.stop();
-            st01 = new sTimer(jl02,Integer.parseInt(jtm02.getText()),Integer.parseInt(jts02.getText()));
+            st01 = new sTimer(jl01,Integer.parseInt(jtm01.getText()),Integer.parseInt(jts01.getText()));
             slc.close();
             if(checkIfSomeoneIsRunning()){
                 slc = new startLessChecker(st01,st02,st03,st04,st05,jlessCur,jtfCurLess,tf01,tf02,tf03,tf04,tf05);
@@ -606,16 +631,20 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void jtm01FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtm01FocusLost
         // TODO add your handling code here:
-        if(!st01.isRunnig()){
+        if(st01.isRunnig()){
             st01.stop();
+            st01 = new sTimer(jl01,Integer.parseInt(jtm01.getText()),Integer.parseInt(jts01.getText()));
+        }else{
             st01 = new sTimer(jl01,Integer.parseInt(jtm01.getText()),Integer.parseInt(jts01.getText()));
         }
     }//GEN-LAST:event_jtm01FocusLost
 
     private void jtm02FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtm02FocusLost
         // TODO add your handling code here:
-        if(!st02.isRunnig()){
+        if(st02.isRunnig()){
             st02.stop();
+            st02 = new sTimer(jl02,Integer.parseInt(jtm02.getText()),Integer.parseInt(jts02.getText()));
+        }else{
             st02 = new sTimer(jl02,Integer.parseInt(jtm02.getText()),Integer.parseInt(jts02.getText()));
         }
     }//GEN-LAST:event_jtm02FocusLost
@@ -627,8 +656,10 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void jtm03FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtm03FocusLost
         // TODO add your handling code here:
-        if(!st03.isRunnig()){
+        if(st03.isRunnig()){
             st03.stop();
+            st03 = new sTimer(jl03,Integer.parseInt(jtm03.getText()),Integer.parseInt(jts03.getText()));
+        }else{
             st03 = new sTimer(jl03,Integer.parseInt(jtm03.getText()),Integer.parseInt(jts03.getText()));
         }
     }//GEN-LAST:event_jtm03FocusLost
@@ -683,8 +714,10 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void jtm04FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtm04FocusLost
         // TODO add your handling code here:
-        if(!st04.isRunnig()){
+        if(st04.isRunnig()){
             st04.stop();
+            st04 = new sTimer(jl04,Integer.parseInt(jtm04.getText()),Integer.parseInt(jts04.getText()));
+        }else{
             st04 = new sTimer(jl04,Integer.parseInt(jtm04.getText()),Integer.parseInt(jts04.getText()));
         }
     }//GEN-LAST:event_jtm04FocusLost
@@ -739,8 +772,10 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void jtm05FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtm05FocusLost
         // TODO add your handling code here:
-        if(!st05.isRunnig()){
+        if(st05.isRunnig()){
             st05.stop();
+            st05 = new sTimer(jl05,Integer.parseInt(jtm05.getText()),Integer.parseInt(jts05.getText()));
+        }else{
             st05 = new sTimer(jl05,Integer.parseInt(jtm05.getText()),Integer.parseInt(jts05.getText()));
         }
     }//GEN-LAST:event_jtm05FocusLost
@@ -787,6 +822,57 @@ public class mainFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jts01FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jts01FocusLost
+        // TODO add your handling code here:
+        if(st01.isRunnig()){
+            st01.stop();
+            st01 = new sTimer(jl01,Integer.parseInt(jtm01.getText()),Integer.parseInt(jts01.getText()));
+        }else{
+            st01 = new sTimer(jl01,Integer.parseInt(jtm01.getText()),Integer.parseInt(jts01.getText()));
+        }
+    }//GEN-LAST:event_jts01FocusLost
+
+    private void jts02FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jts02FocusLost
+        // TODO add your handling code here:
+        if(st02.isRunnig()){
+            st02.stop();
+            st02 = new sTimer(jl02,Integer.parseInt(jtm02.getText()),Integer.parseInt(jts02.getText()));
+        }else{
+            st02 = new sTimer(jl02,Integer.parseInt(jtm02.getText()),Integer.parseInt(jts02.getText()));
+        }
+    }//GEN-LAST:event_jts02FocusLost
+
+    private void jts03FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jts03FocusLost
+        // TODO add your handling code here:
+        if(st03.isRunnig()){
+            st03.stop();
+            st03 = new sTimer(jl03,Integer.parseInt(jtm03.getText()),Integer.parseInt(jts03.getText()));
+        }else{
+            st03 = new sTimer(jl03,Integer.parseInt(jtm03.getText()),Integer.parseInt(jts03.getText()));
+        }
+    }//GEN-LAST:event_jts03FocusLost
+
+    private void jts04FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jts04FocusLost
+        // TODO add your handling code here:
+        if(st04.isRunnig()){
+            st04.stop();
+            st04 = new sTimer(jl04,Integer.parseInt(jtm04.getText()),Integer.parseInt(jts04.getText()));
+        }else{
+            st04 = new sTimer(jl04,Integer.parseInt(jtm04.getText()),Integer.parseInt(jts04.getText()));
+        }
+        
+    }//GEN-LAST:event_jts04FocusLost
+
+    private void jts05FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jts05FocusLost
+        // TODO add your handling code here:
+        if(st05.isRunnig()){
+            st05.stop();
+            st05 = new sTimer(jl05,Integer.parseInt(jtm05.getText()),Integer.parseInt(jts05.getText()));
+        }else{
+            st05 = new sTimer(jl05,Integer.parseInt(jtm05.getText()),Integer.parseInt(jts05.getText()));
+        }
+    }//GEN-LAST:event_jts05FocusLost
 
     /**
      * @param args the command line arguments

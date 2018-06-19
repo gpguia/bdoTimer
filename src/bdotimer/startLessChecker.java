@@ -1320,7 +1320,7 @@ public class startLessChecker extends Thread{
                 }
             }
             try{
-                Thread.sleep(999);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(startLessChecker.class.getName()).log(Level.SEVERE, null, ex);
             }
